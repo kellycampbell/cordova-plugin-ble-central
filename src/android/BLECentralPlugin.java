@@ -245,6 +245,20 @@ public class BLECentralPlugin extends CordovaPlugin implements BluetoothAdapter.
     private void write(CallbackContext callbackContext, String macAddress, UUID serviceUUID, UUID characteristicUUID,
                        byte[] data, int writeType) {
 
+        if (macAddress == null) {
+            callbackContext.error("Device address required");
+        }
+
+        if (serviceUUID == null) {
+            callbackContext.error("serviceUUID required");
+            return;
+        }
+
+        if (characteristicUUID == null) {
+            callbackContext.error("characteristicUUID required");
+            return;
+        }
+
         Peripheral peripheral = peripherals.get(macAddress);
 
         if (peripheral == null) {
