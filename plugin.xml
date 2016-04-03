@@ -16,6 +16,9 @@
     <js-module src="www/ble.js" name="ble">
         <clobbers target="ble" />
     </js-module>
+    <js-module src="www/blePromised.js" name="blePromised">
+        <clobbers target="blePromised" />
+    </js-module>
 
     <platform name="ios">
 
